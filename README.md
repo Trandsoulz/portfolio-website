@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bethrand Nnaemeka - Portfolio Website
+
+A clean, high-performance portfolio for Bethrand Nnaemeka, a full-stack developer specializing in backend engineering. The site highlights production-grade systems, architecture thinking, and real-world project experience.
+
+## Highlights
+
+- Minimal, premium aesthetic with subtle motion and grid textures
+- Strong backend positioning with architecture and systems focus
+- Featured projects with real production achievements
+- Optimized SEO with Open Graph, Twitter cards, and JSON-LD
+- Responsive layout with fast load and smooth interactions
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start the production server:
 
-## Learn More
+```bash
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Update the contact form ID in app/lib/data.ts (Formspree)
+- Replace the profile photo at public/bethrand.jpg
+- Update the domain in app/layout.tsx if deploying under a different URL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Deploy to Vercel or any Node.js hosting that supports Next.js. Ensure environment variables and domain settings match the metadata configuration.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email: bethrand2019@gmail.com
+- LinkedIn: https://www.linkedin.com/in/bethrandnnaemeka2019/
+- GitHub: https://github.com/Trandsoulz

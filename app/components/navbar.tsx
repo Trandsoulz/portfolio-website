@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
     { label: "About", href: "#about" },
@@ -15,28 +15,47 @@ export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("");
 
-    const handleScroll = useCallback(() => {
-        setScrolled(window.scrollY > 20);
-
-        const sections = navLinks.map((link) => link.href.replace("#", ""));
-        let current = "";
-        for (const section of sections) {
-            const el = document.getElementById(section);
-            if (el) {
-                const rect = el.getBoundingClientRect();
-                if (rect.top <= 120) {
-                    current = section;
-                }
-            }
-        }
-        setActiveSection(current);
-    }, []);
-
+    // Lightweight scroll detection for navbar style
     useEffect(() => {
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrolled(window.scrollY > 20);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
         window.addEventListener("scroll", handleScroll, { passive: true });
         handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [handleScroll]);
+    }, []);
+
+    // IntersectionObserver for active section detection (non-blocking, async)
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                rootMargin: "-20% 0px -60% 0px",
+                threshold: 0,
+            }
+        );
+
+        const sections = navLinks.map((link) => link.href.replace("#", ""));
+        sections.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         if (mobileOpen) {
@@ -52,7 +71,7 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-lg shadow-black/5"
+                ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-lg shadow-black/5"
                 : ""
                 }`}
         >
@@ -116,7 +135,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {mobileOpen && (
-                <div className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-border">
+                <div className="md:hidden overflow-hidden bg-background/98 backdrop-blur-sm border-b border-border">
                     <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-1">
                         {navLinks.map((link) => {
                             const isActive = activeSection === link.href.replace("#", "");

@@ -26,13 +26,13 @@ export default function Hero() {
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                     {/* Text Content */}
                     <div className="flex-1 space-y-8 text-center lg:text-left">
-                        <div className="hero-animate hero-delay-1">
+                        <div>
                             <span className="text-accent font-mono text-sm tracking-wider">
                                 Full-Stack Engineer · Backend Specialist
                             </span>
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] hero-animate hero-delay-2">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
                             Backend Engineer{" "}
                             <br className="hidden sm:block" />
                             Building{" "}
@@ -40,11 +40,11 @@ export default function Hero() {
                             Systems
                         </h1>
 
-                        <p className="text-muted text-lg md:text-xl max-w-xl leading-relaxed mx-auto lg:mx-0 hero-animate hero-delay-3">
+                        <p className="text-muted text-lg md:text-xl max-w-xl leading-relaxed mx-auto lg:mx-0">
                             {siteConfig.description}
                         </p>
 
-                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start hero-animate hero-delay-4">
+                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                             <a
                                 href="#projects"
                                 className="px-6 py-3 bg-accent hover:bg-accent-dark text-black font-medium rounded-lg transition-colors duration-200"
@@ -59,7 +59,7 @@ export default function Hero() {
                             </a>
                         </div>
 
-                        <div className="flex items-center gap-6 justify-center lg:justify-start pt-2 hero-animate-fade hero-delay-5">
+                        <div className="flex items-center gap-6 justify-center lg:justify-start pt-2">
                             <a
                                 href={siteConfig.github}
                                 target="_blank"
@@ -118,10 +118,10 @@ export default function Hero() {
                     </div>
 
                     {/* Profile Photo */}
-                    <div className="relative shrink-0 hero-animate-scale">
-                        {/* Animated glow ring */}
+                    <div className="relative shrink-0">
+                        {/* Glow ring */}
                         <div
-                            className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-accent/20 via-accent/5 to-accent/20 blur-2xl animate-pulse"
+                            className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-accent/20 via-accent/5 to-accent/20 blur-2xl"
                         />
                         {/* Decorative corner accents */}
                         <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-accent/40 rounded-tl-lg" />

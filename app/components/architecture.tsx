@@ -1,8 +1,5 @@
-"use client";
-
 import type { ReactNode } from "react";
 import SectionHeading from "./section-heading";
-import MotionWrapper from "./motion-wrapper";
 import { architecturePrinciples } from "../lib/data";
 
 const icons: Record<string, ReactNode> = {
@@ -119,22 +116,20 @@ export default function Architecture() {
                 />
 
                 <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
-                    {architecturePrinciples.map((principle, index) => (
-                        <MotionWrapper key={principle.title} delay={index * 0.08}>
-                            <div className="flex gap-4 group">
-                                <div className="w-12 h-12 rounded-lg bg-accent/8 flex items-center justify-center text-accent shrink-0 group-hover:bg-accent/12 transition-colors duration-300">
-                                    {icons[principle.icon]}
-                                </div>
-                                <div>
-                                    <h3 className="text-foreground font-semibold text-lg mb-2">
-                                        {principle.title}
-                                    </h3>
-                                    <p className="text-muted leading-relaxed">
-                                        {principle.description}
-                                    </p>
-                                </div>
+                    {architecturePrinciples.map((principle) => (
+                        <div key={principle.title} className="flex gap-4 group">
+                            <div className="w-12 h-12 rounded-lg bg-accent/8 flex items-center justify-center text-accent shrink-0 group-hover:bg-accent/12 transition-colors duration-300">
+                                {icons[principle.icon]}
                             </div>
-                        </MotionWrapper>
+                            <div>
+                                <h3 className="text-foreground font-semibold text-lg mb-2">
+                                    {principle.title}
+                                </h3>
+                                <p className="text-muted leading-relaxed">
+                                    {principle.description}
+                                </p>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

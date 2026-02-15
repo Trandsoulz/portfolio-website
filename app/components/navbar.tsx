@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
     { label: "About", href: "#about" },
@@ -134,35 +135,49 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            {mobileOpen && (
-                <div className="md:hidden overflow-hidden bg-background/98 backdrop-blur-sm border-b border-border">
-                    <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-1">
-                        {navLinks.map((link) => {
-                            const isActive = activeSection === link.href.replace("#", "");
-                            return (
-                                <a
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={() => setMobileOpen(false)}
-                                    className={`text-base py-3 px-4 rounded-lg transition-colors duration-200 ${isActive
-                                        ? "text-accent bg-accent/8"
-                                        : "text-muted hover:text-foreground hover:bg-card"
-                                        }`}
-                                >
-                                    {link.label}
-                                </a>
-                            );
-                        })}
-                        <a
-                            href="#contact"
-                            onClick={() => setMobileOpen(false)}
-                            className="mt-3 px-4 py-3 text-base font-medium bg-accent hover:bg-accent-dark text-black rounded-lg transition-colors duration-200 text-center"
-                        >
-                            Get in Touch
-                        </a>
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {mobileOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="md:hidden overflow-hidden bg-background/98 backdrop-blur-sm border-b border-border"
+                    >
+                        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-1">
+                            {navLinks.map((link, index) => {
+                                const isActive = activeSection === link.href.replace("#", "");
+                                return (
+                                    <motion.a
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setMobileOpen(false)}
+                                        initial={{ opacity: 0, x: -16 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.25, delay: index * 0.05 }}
+                                        className={`text-base py-3 px-4 rounded-lg transition-colors duration-200 ${isActive
+                                            ? "text-accent bg-accent/8"
+                                            : "text-muted hover:text-foreground hover:bg-card"
+                                            }`}
+                                    >
+                                        {link.label}
+                                    </motion.a>
+                                );
+                            })}
+                            <motion.a
+                                href="#contact"
+                                onClick={() => setMobileOpen(false)}
+                                initial={{ opacity: 0, x: -16 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.25, delay: navLinks.length * 0.05 }}
+                                className="mt-3 px-4 py-3 text-base font-medium bg-accent hover:bg-accent-dark text-black rounded-lg transition-colors duration-200 text-center"
+                            >
+                                Get in Touch
+                            </motion.a>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

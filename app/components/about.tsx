@@ -1,7 +1,4 @@
-"use client";
-
 import SectionHeading from "./section-heading";
-import MotionWrapper from "./motion-wrapper";
 import { aboutContent } from "../lib/data";
 
 const stats = [
@@ -49,7 +46,7 @@ export default function About() {
                 />
 
                 {/* Stats Bar */}
-                <MotionWrapper className="mb-16">
+                <div className="mb-16">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {stats.map((stat) => (
                             <div
@@ -63,50 +60,44 @@ export default function About() {
                             </div>
                         ))}
                     </div>
-                </MotionWrapper>
+                </div>
 
                 {/* Bio Paragraphs */}
                 <div className="space-y-6 mb-12">
                     {aboutContent.paragraphs.map((paragraph, index) => (
-                        <MotionWrapper key={index} delay={index * 0.1}>
-                            <p className="text-muted leading-relaxed text-base md:text-lg">
-                                {paragraph}
-                            </p>
-                        </MotionWrapper>
+                        <p key={index} className="text-muted leading-relaxed text-base md:text-lg">
+                            {paragraph}
+                        </p>
                     ))}
                 </div>
 
                 {/* Capabilities List */}
-                <MotionWrapper delay={0.3}>
-                    <div className="space-y-8">
-                        {capabilities.map((item, index) => (
-                            <div key={item.label} className="flex gap-4">
-                                <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2.5 shrink-0" />
-                                <div>
-                                    <h4 className="text-foreground font-semibold text-base mb-1">
-                                        {item.label}
-                                    </h4>
-                                    <p className="text-muted text-sm md:text-base leading-relaxed">
-                                        {item.detail}
-                                    </p>
-                                </div>
+                <div className="space-y-8">
+                    {capabilities.map((item, index) => (
+                        <div key={item.label} className="flex gap-4">
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2.5 shrink-0" />
+                            <div>
+                                <h4 className="text-foreground font-semibold text-base mb-1">
+                                    {item.label}
+                                </h4>
+                                <p className="text-muted text-sm md:text-base leading-relaxed">
+                                    {item.detail}
+                                </p>
                             </div>
-                        ))}
-                    </div>
-                </MotionWrapper>
+                        </div>
+                    ))}
+                </div>
 
                 {/* Education */}
-                <MotionWrapper delay={0.4}>
-                    <div className="mt-12 pt-8 border-t border-border">
-                        <p className="text-accent font-mono text-xs tracking-wider uppercase mb-2">
-                            Education
-                        </p>
-                        <p className="text-foreground font-medium">
-                            BSc. Computer Science
-                        </p>
-                        <p className="text-muted text-sm">University of Port Harcourt</p>
-                    </div>
-                </MotionWrapper>
+                <div className="mt-12 pt-8 border-t border-border">
+                    <p className="text-accent font-mono text-xs tracking-wider uppercase mb-2">
+                        Education
+                    </p>
+                    <p className="text-foreground font-medium">
+                        BSc. Computer Science
+                    </p>
+                    <p className="text-muted text-sm">University of Port Harcourt</p>
+                </div>
             </div>
         </section>
     );

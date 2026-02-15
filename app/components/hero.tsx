@@ -1,5 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { siteConfig } from "../lib/data";
+
+const fadeUp = (delay: number) => ({
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay, ease: "easeOut" as const },
+});
 
 export default function Hero() {
     return (
@@ -20,31 +29,37 @@ export default function Hero() {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--color-background)_70%)] pointer-events-none" />
             {/* Subtle gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-[120px] pointer-events-none" />
+            <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.04) 0%, transparent 70%)' }}
+            />
 
             <div className="max-w-6xl mx-auto px-6 pt-32 pb-20 w-full relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                     {/* Text Content */}
                     <div className="flex-1 space-y-8 text-center lg:text-left">
-                        <div>
+                        <motion.div {...fadeUp(0)}>
                             <span className="text-accent font-mono text-sm tracking-wider">
                                 Full-Stack Engineer · Backend Specialist
                             </span>
-                        </div>
+                        </motion.div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+                        <motion.h1 {...fadeUp(0.1)} className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
                             Backend Engineer{" "}
                             <br className="hidden sm:block" />
                             Building{" "}
                             <span className="text-accent">Production-Grade</span>{" "}
                             Systems
-                        </h1>
+                        </motion.h1>
 
-                        <p className="text-muted text-lg md:text-xl max-w-xl leading-relaxed mx-auto lg:mx-0">
+                        <motion.p
+                            {...fadeUp(0.2)}
+                            className="text-muted text-lg md:text-xl max-w-xl leading-relaxed mx-auto lg:mx-0"
+                        >
                             {siteConfig.description}
-                        </p>
+                        </motion.p>
 
-                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <motion.div {...fadeUp(0.3)} className="flex flex-wrap gap-4 justify-center lg:justify-start">
                             <a
                                 href="#projects"
                                 className="px-6 py-3 bg-accent hover:bg-accent-dark text-black font-medium rounded-lg transition-colors duration-200"
@@ -57,9 +72,9 @@ export default function Hero() {
                             >
                                 Contact Me
                             </a>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex items-center gap-6 justify-center lg:justify-start pt-2">
+                        <motion.div {...fadeUp(0.4)} className="flex items-center gap-6 justify-center lg:justify-start pt-2">
                             <a
                                 href={siteConfig.github}
                                 target="_blank"
@@ -114,14 +129,19 @@ export default function Hero() {
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                                 </svg>
                             </a>
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Profile Photo */}
-                    <div className="relative shrink-0">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        className="relative shrink-0"
+                    >
                         {/* Glow ring */}
                         <div
-                            className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-accent/20 via-accent/5 to-accent/20 blur-2xl"
+                            className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-accent/10 via-accent/3 to-accent/10 opacity-80"
                         />
                         {/* Decorative corner accents */}
                         <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-accent/40 rounded-tl-lg" />
@@ -137,11 +157,13 @@ export default function Hero() {
                                 height={420}
                                 className="object-cover w-full h-full"
                                 priority
+                                quality={100}
+                                sizes="(max-width: 768px) 256px, (max-width: 1024px) 320px, 420px"
                             />
                             {/* Subtle overlay gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

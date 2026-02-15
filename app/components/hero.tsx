@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { siteConfig } from "../lib/data";
 
 export default function Hero() {
@@ -29,44 +26,25 @@ export default function Hero() {
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                     {/* Text Content */}
                     <div className="flex-1 space-y-8 text-center lg:text-left">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
+                        <div className="hero-animate hero-delay-1">
                             <span className="text-accent font-mono text-sm tracking-wider">
                                 Full-Stack Engineer · Backend Specialist
                             </span>
-                        </motion.div>
+                        </div>
 
-                        <motion.h1
-                            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                        >
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] hero-animate hero-delay-2">
                             Backend Engineer{" "}
                             <br className="hidden sm:block" />
                             Building{" "}
                             <span className="text-accent">Production-Grade</span>{" "}
                             Systems
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            className="text-muted text-lg md:text-xl max-w-xl leading-relaxed mx-auto lg:mx-0"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
+                        <p className="text-muted text-lg md:text-xl max-w-xl leading-relaxed mx-auto lg:mx-0 hero-animate hero-delay-3">
                             {siteConfig.description}
-                        </motion.p>
+                        </p>
 
-                        <motion.div
-                            className="flex flex-wrap gap-4 justify-center lg:justify-start"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                        >
+                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start hero-animate hero-delay-4">
                             <a
                                 href="#projects"
                                 className="px-6 py-3 bg-accent hover:bg-accent-dark text-black font-medium rounded-lg transition-colors duration-200"
@@ -79,14 +57,9 @@ export default function Hero() {
                             >
                                 Contact Me
                             </a>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            className="flex items-center gap-6 justify-center lg:justify-start pt-2"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                        >
+                        <div className="flex items-center gap-6 justify-center lg:justify-start pt-2 hero-animate-fade hero-delay-5">
                             <a
                                 href={siteConfig.github}
                                 target="_blank"
@@ -141,40 +114,24 @@ export default function Hero() {
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                                 </svg>
                             </a>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Profile Photo */}
-                    <motion.div
-                        className="relative shrink-0"
-                        initial={{ opacity: 0, scale: 0.85, rotate: -3 }}
-                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    >
+                    <div className="relative shrink-0 hero-animate-scale">
                         {/* Animated glow ring */}
-                        <motion.div
-                            className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-accent/20 via-accent/5 to-accent/20 blur-2xl"
-                            animate={{
-                                scale: [1, 1.05, 1],
-                                opacity: [0.5, 0.8, 0.5],
-                            }}
-                            transition={{
-                                duration: 4,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
+                        <div
+                            className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-accent/20 via-accent/5 to-accent/20 blur-2xl animate-pulse"
                         />
                         {/* Decorative corner accents */}
                         <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-accent/40 rounded-tl-lg" />
                         <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-accent/40 rounded-br-lg" />
                         {/* Image container */}
-                        <motion.div
-                            className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] rounded-2xl overflow-hidden border-2 border-accent/20"
-                            whileHover={{ scale: 1.02, borderColor: "rgba(16, 185, 129, 0.4)" }}
-                            transition={{ duration: 0.3 }}
+                        <div
+                            className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] rounded-2xl overflow-hidden border-2 border-accent/20 hover:scale-[1.02] hover:border-accent/40 transition-all duration-300"
                         >
                             <Image
-                                src="/bethrand.jpg"
+                                src="/bethrand.webp"
                                 alt={siteConfig.name}
                                 width={420}
                                 height={420}
@@ -183,8 +140,8 @@ export default function Hero() {
                             />
                             {/* Subtle overlay gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

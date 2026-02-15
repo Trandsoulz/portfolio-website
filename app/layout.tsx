@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   keywords: [
+    "Bethrand Nnaemeka",
+    "Bethrand",
+    "Nnaemeka",
     "Backend Engineer",
     "Full-Stack Developer",
     "Node.js Developer",
@@ -75,7 +78,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: `${siteUrl}/bethrand.jpg`,
+        url: `https://res.cloudinary.com/dpesanzkk/image/upload/v1771147706/bethrand_1_nce8e4.webp`,
         width: 1200,
         height: 630,
         alt: "Bethrand Nnaemeka - Backend Engineer",
@@ -88,7 +91,7 @@ export const metadata: Metadata = {
     title: "Bethrand Nnaemeka — Backend Engineer",
     description: siteDescription,
     creator: "@bethrand",
-    images: [`${siteUrl}/bethrand.jpg`],
+    images: "https://res.cloudinary.com/dpesanzkk/image/upload/v1771147706/bethrand_1_nce8e4.webp",
   },
   robots: {
     index: true,

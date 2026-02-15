@@ -15,7 +15,7 @@ export default function MotionWrapper({
     delay = 0,
 }: MotionWrapperProps) {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-80px" });
+    const isInView = useInView(ref, { once: true, margin: "-30px" });
 
     return (
         <motion.div

@@ -1,5 +1,3 @@
-import MotionWrapper from "./motion-wrapper";
-
 interface SectionHeadingProps {
     label: string;
     title: string;
@@ -12,7 +10,7 @@ export default function SectionHeading({
     description,
 }: SectionHeadingProps) {
     return (
-        <MotionWrapper className="mb-16">
+        <div className="mb-16">
             <span className="text-accent text-sm font-mono tracking-wider uppercase">
                 {label}
             </span>
@@ -24,6 +22,6 @@ export default function SectionHeading({
                     {description}
                 </p>
             )}
-        </MotionWrapper>
+        </div>
     );
 }

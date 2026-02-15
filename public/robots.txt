@@ -2,5 +2,13 @@
 User-agent: *
 Allow: /
 
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
 # Sitemaps
 Sitemap: https://bethrand.dev/sitemap.xml

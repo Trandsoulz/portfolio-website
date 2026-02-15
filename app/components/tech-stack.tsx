@@ -1,7 +1,4 @@
-"use client";
-
 import SectionHeading from "./section-heading";
-import MotionWrapper from "./motion-wrapper";
 import { techStack } from "../lib/data";
 
 const categories = [
@@ -21,24 +18,22 @@ export default function TechStack() {
                 />
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {categories.map((category, catIndex) => (
-                        <MotionWrapper key={category.label} delay={catIndex * 0.1}>
-                            <div className="bg-card border border-border rounded-xl p-6 h-full">
-                                <h3 className="text-accent font-mono text-sm tracking-wider uppercase mb-6">
-                                    {category.label}
-                                </h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {category.items.map((item) => (
-                                        <span
-                                            key={item}
-                                            className="px-3 py-1.5 text-sm text-muted bg-background border border-border rounded-lg hover:text-foreground hover:border-accent/30 transition-colors duration-200"
-                                        >
-                                            {item}
-                                        </span>
-                                    ))}
-                                </div>
+                    {categories.map((category) => (
+                        <div key={category.label} className="bg-card border border-border rounded-xl p-6 h-full">
+                            <h3 className="text-accent font-mono text-sm tracking-wider uppercase mb-6">
+                                {category.label}
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                                {category.items.map((item) => (
+                                    <span
+                                        key={item}
+                                        className="px-3 py-1.5 text-sm text-muted bg-background border border-border rounded-lg hover:text-foreground hover:border-accent/30 transition-colors duration-200"
+                                    >
+                                        {item}
+                                    </span>
+                                ))}
                             </div>
-                        </MotionWrapper>
+                        </div>
                     ))}
                 </div>
             </div>

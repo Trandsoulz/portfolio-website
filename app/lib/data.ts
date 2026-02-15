@@ -7,7 +7,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/bethrandnnaemeka2019/",
     github: "https://github.com/Trandsoulz",
     location: "Port Harcourt, Nigeria",
-    formspreeId: "YOUR_FORMSPREE_ID", // Replace with your actual Formspree form ID
+    formspreeId: "xojndpae", // Replace with your actual Formspree form ID
 };
 
 export const aboutContent = {

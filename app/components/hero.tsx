@@ -67,7 +67,7 @@ export default function Hero() {
                                 View Projects
                             </a>
                             <a
-                                href="https://wa.me/2348113848299?text=Hey%2C%20I%20 would%20like%20you%20to%20build%20a%20software%20for%20me"
+                                href="https://wa.me/2348113848299?text=Hey%2C%20I%20would%20like%20you%20to%20build%20a%20website%20for%20me"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-6 py-3 border border-border hover:border-muted text-foreground rounded-lg transition-colors duration-200"

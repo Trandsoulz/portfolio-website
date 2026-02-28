@@ -154,7 +154,7 @@ export const metadata: Metadata = {
   },
   category: "technology",
   other: {
-    "google-site-verification": "YOUR_GOOGLE_VERIFICATION_CODE",
+    "google-site-verification": "tZukxrSMX1f95kRd2AO90BXFdnWMjW_26GPbCaQj7AE",
   },
 };
 
